@@ -79,3 +79,42 @@ insert into interests (STUDENT_ID , INTERESTS)  values ('3','{{"Math"}, { "Music
 drop column INTEREST
 If user retrieve the table,it will be shown that rows that previously created have NULL values,and to avoid them user shall execute 
 delete from INTERESTS where interests is null;
+
+
+In the last file, user is expected to get back to the previous version of the two tables. In first version we have st_id,st_name and st_last. First we should add st_id column again by using 
+alter table STUDENTS
+add column ST_ID integer ;
+To transfer values of Student_id to new added column user will execute set command.After that with the drop command Student_ID column will be deleted.
+
+update STUDENTS
+SET ST_ID=STUDENT_ID;
+
+alter table STUDENTS
+drop column STUDENT_ID;
+select* from STUDENTS;
+Now, we will perform almost same functions that we did on migration to change the length of column ST_NAME and ST_LAST 
+
+alter table STUDENTS
+alter column ST_NAME type varchar(15);
+alter table STUDENTS
+alter column ST_LAST type varchar(15);
+select ST_ID,ST_NAME,ST_LAST
+FROM STUDENTS;
+Lastly,to roll back Interests table I repeat the almost same processes.
+ User expected to execute following commands to get the initial version of Interests table.
+
+alter table INTERESTS
+add column interest varchar(15);
+alter table INTERESTS
+insert into INTERESTS (STUDENT_ID , INTEREST) values(1,'Tennis');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(1,'Literature');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(1,'Math');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(2,'Tennis');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(3,'Math');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(3,'Music');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(2,'Football');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(1,'Chemistry');
+insert into INTERESTS (STUDENT_ID , INTEREST) values(3,'Chess');
+delete from INTERESTS where interest is null;
+
+select*from INTERESTS;
