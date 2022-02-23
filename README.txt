@@ -1,8 +1,8 @@
 # 2022-a1-migration-Ltaghiyeva
 2022-a1-migration-Ltaghiyeva created by GitHub Classroom
 
-For this assignment I have uploaded 3 sql files,which are data creation.sql,migration.sql and rollback.sql.
-  By compiling “creation” file user will be able to create the data set.
+ For this assignment I have uploaded 3 sql files,which are data creation.sql,migration.sql and rollback.sql.
+By compiling “creation” file user will be able to create the data set.
  Firstly, user will run those queries,which create table called “STUDENTS” that will hold values for  ST_ID,ST_NAME_ST_LAST. 
 
 create table STUDENTS(
